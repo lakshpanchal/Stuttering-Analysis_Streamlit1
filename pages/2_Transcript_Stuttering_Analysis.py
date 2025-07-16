@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
+
 st.set_page_config(layout = 'wide')
 st.title('Transcript Stuttering Analysis')
 
@@ -127,6 +128,7 @@ people who stutter and highlights the individualized nature of stuttering patter
 
 # Visualizing Data per Clip
 st.subheader(f"Dataset Used for Analysis - Clip # {selected_clip}")
-st.dataframe(filtered_transcript[['Clip ID','Start','Stop','Disfluency Type','Age Range','Letter(s)']])
+st.dataframe(filtered_transcript[['Clip ID','Start','Stop','Disfluency Type','Age Range','Letter(s)','Link']])
+
 
 
