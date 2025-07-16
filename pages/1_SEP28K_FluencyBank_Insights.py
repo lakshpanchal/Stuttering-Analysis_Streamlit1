@@ -14,8 +14,8 @@ selectbox_placeholder = st.empty()
 # Stuttering Events Analysis
 def stuttering_events_analysis():
     #Read Data
-    fluency_b_data = pd.read_csv("Pages/fluencybank_labels.csv")
-    sep_data = pd.read_csv("Pages/SEP-28k_labels.csv")
+    fluency_b_data = pd.read_csv("pages/fluencybank_labels.csv")
+    sep_data = pd.read_csv("pages/SEP-28k_labels.csv")
 
     # Concatenate Data
     final_data = pd.concat([fluency_b_data,sep_data],ignore_index = True) 
@@ -70,7 +70,7 @@ def stuttering_events_analysis():
 # Normalized Data Analysis
 def normalized_data_analysis():
     # Convert from timestamps to minutes
-    fluency_b_data = pd.read_csv("Pages/fluencybank_labels.csv")
+    fluency_b_data = pd.read_csv("pages/fluencybank_labels.csv")
     fluency_b_data[['Start','Stop']] = (fluency_b_data[['Start','Stop']]/(16000)).astype(float)
     fluency_b_data[['Start','Stop']] = (fluency_b_data[['Start','Stop']]//60)
     fluency_b_data['Total'] = fluency_b_data[['Prolongation','Block','SoundRep','WordRep','Interjection','NaturalPause']].sum(axis=1)
@@ -94,7 +94,7 @@ def normalized_data_analysis():
 # Number of Disfluencies Analysis
 def Num_disfluencies_analysis():
     #Read Data
-    sep_data = pd.read_csv('Pages/SEP-28k_labels.csv')
+    sep_data = pd.read_csv('pages/SEP-28k_labels.csv')
     
     #Convert from timestamps to minutes
     sep_data[['Start','Stop']] = (sep_data[['Start','Stop']]/16000).astype(float)
@@ -171,7 +171,7 @@ in the number of disfluencies, which may indicate growing cognitive load, fatigu
 
 # Visualizing Data per Clip
 st.subheader('Dataset Used for Analysis (Fluency Bank/Sep 28k)')
-fluency_b_data = pd.read_csv("Pages/fluencybank_labels.csv")
-sep_data = pd.read_csv("Pages/SEP-28k_labels.csv")
+fluency_b_data = pd.read_csv("pages/fluencybank_labels.csv")
+sep_data = pd.read_csv("pages/SEP-28k_labels.csv")
 final_data = pd.concat([fluency_b_data,sep_data],ignore_index = True)
 st.write(final_data)

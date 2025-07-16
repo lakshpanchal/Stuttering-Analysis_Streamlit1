@@ -15,7 +15,7 @@ transcript dataset by clip ID using the dropdown filter located beneath the page
 """)
 
 #Data Loading
-transcript =pd.read_excel("/Users/lakshpanchal/Downloads/Python /Stuttering Python Project/Letter Transcription.xlsx")
+transcript =pd.read_excel("pages/Letter Transcription.xlsx")
 clip_options = transcript['Clip ID'].unique()
 selected_clip = st.selectbox('Select A Clip ID', sorted(clip_options))
 filtered_transcript = transcript[transcript['Clip ID'] == selected_clip] 
